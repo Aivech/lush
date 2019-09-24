@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "id": "lush",
+  "version": "${version}",
+
+  "name": "Lush",
+  "description": "Adding more plant life to Minecraft",
+  "authors": [
+    "Aivech","BlueSnakeMagic"
+  ],
+  "contact": {
+    "homepage": "",
+    "sources": ""
+  },
+
+  "license": "MIT",
+  "icon": "assets/lush/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.aivech.lush.Lush"
+    ]
+  },
+  "mixins": [
+    "modid.mixins.json"
+  ],
+
+  "depends": {
+    "fabricloader": ">=0.4.0",
+    "fabric": "*"
+  },
+  "suggests": {
+  }
+}
