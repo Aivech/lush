@@ -36,6 +36,6 @@ public class BlockReed extends BlockWaterPlant {
 
     @Override
     public VoxelShape getOutlineShape(BlockState blockState_1, BlockView blockView_1, BlockPos blockPos_1, EntityContext entityContext_1) {
-        return
+        return SHAPE;
     }
 }
