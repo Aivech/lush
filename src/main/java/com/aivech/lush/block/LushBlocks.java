@@ -2,6 +2,7 @@ package com.aivech.lush.block;
 
 import com.aivech.lush.Lush;
 import net.fabricmc.fabric.api.block.FabricBlockSettings;
+import net.minecraft.block.Block;
 import net.minecraft.block.Material;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
@@ -9,18 +10,15 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
 public enum LushBlocks {
-    ANTHURIUM(new BlockAnthrium(),true);
+    ANTHURIUM(new BlockAnthrium(),true),
+    REED(new BlockWaterloggable(FabricBlockSettings.of(Material.UNDERWATER_PLANT).build(),"cattail"),true);
 
-    private final BlockBase block;
+    public final BlockBase block;
     private final boolean registerItemBlock;
 
     LushBlocks(BlockBase b, boolean registerItemBlock) {
         this.block = b;
         this.registerItemBlock = registerItemBlock;
-    }
-
-    public BlockBase getBlock() {
-        return this.block;
     }
 
     public static void init() {

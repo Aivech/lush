@@ -11,7 +11,4 @@ public class BlockWaterloggable extends BlockBase implements Waterloggable {
         super(settings, id);
         this.setDefaultState(this.getStateFactory().getDefaultState().with(Properties.WATERLOGGED,false));
     }
-
-
-
 }
