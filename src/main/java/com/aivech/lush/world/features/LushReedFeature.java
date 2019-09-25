@@ -3,7 +3,6 @@ package com.aivech.lush.world.features;
 import com.aivech.lush.block.BlockReed;
 import com.aivech.lush.world.features.config.ReedFeatureConfig;
 import net.minecraft.fluid.Fluids;
-import net.minecraft.state.property.Properties;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.IWorld;
@@ -33,10 +32,10 @@ public class LushReedFeature extends Feature<ReedFeatureConfig> {
                 BlockPos pos = placeNext.pollFirst();
                 if (reedFeatureConfig.plant.canPlaceAt(iWorld, pos)) {
                     placed++;
-                    iWorld.setBlockState(pos, reedFeatureConfig.plant, 2);
-                    iWorld.setBlockState(pos.up(), reedFeatureConfig.plant.with(BlockReed.POSITION, BlockReed.Position.MIDDLE).with(Properties.WATERLOGGED, false), 2);
+                    iWorld.setBlockState(pos, reedFeatureConfig.plant, 3);
+                    iWorld.setBlockState(pos.up(), reedFeatureConfig.plant.with(BlockReed.POSITION, BlockReed.Position.MIDDLE), 3);
                     if (random.nextInt(3) == 2) {
-                        iWorld.setBlockState(pos.up(2), reedFeatureConfig.plant.with(BlockReed.POSITION, BlockReed.Position.TOP).with(Properties.WATERLOGGED, false), 2);
+                        iWorld.setBlockState(pos.up(2), reedFeatureConfig.plant.with(BlockReed.POSITION, BlockReed.Position.TOP), 3);
                     }
                     for (int i = 0; i < 4; i++) {
                         Direction dir = Direction.byId(i + 2);

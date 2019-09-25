@@ -3,6 +3,8 @@ package com.aivech.lush.block;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.EntityContext;
+import net.minecraft.fluid.FluidState;
+import net.minecraft.fluid.Fluids;
 import net.minecraft.state.StateFactory;
 import net.minecraft.state.property.EnumProperty;
 import net.minecraft.util.StringIdentifiable;
@@ -17,6 +19,11 @@ public class BlockReed extends BlockWaterPlant {
     public BlockReed(String id) {
         super(id);
         setDefaultState(getStateFactory().getDefaultState().with(POSITION, Position.BOTTOM));
+    }
+
+    @Override
+    public FluidState getFluidState(BlockState state) {
+        return state.get(POSITION) == Position.BOTTOM ? Fluids.WATER.getStill(false) : Fluids.EMPTY.getDefaultState();
     }
 
     @Override
