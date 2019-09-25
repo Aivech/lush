@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "position=bottom": {
+      "model": "lush:block/cattail_bottom"
+    },
+    "position=middle": {
+      "model": "lush:block/cattail_middle"
+    },
+    "position=top": {
+      "model": "lush:block/cattail_top"
+    }
+  }
+}

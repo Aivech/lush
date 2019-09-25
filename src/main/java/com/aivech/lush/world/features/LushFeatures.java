@@ -4,6 +4,7 @@ import com.aivech.lush.Lush;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.feature.FeatureConfig;
 
 public enum LushFeatures {
     REED_FEATURE(new LushReedFeature(), "reed_feature"),
@@ -19,7 +20,7 @@ public enum LushFeatures {
 
     public static void init() {
         for (LushFeatures feature : LushFeatures.values()) {
-            Registry.register(Registry.FEATURE, feature.id, feature.feature);
+            Registry.register(Registry.FEATURE, feature.id, (Feature<FeatureConfig>)feature.feature);
         }
     }
 }

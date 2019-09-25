@@ -9,8 +9,10 @@ import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
+import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.core.config.Configurator;
 
 public class Lush implements ModInitializer {
     public static final String MODID = "lush";
@@ -19,6 +21,9 @@ public class Lush implements ModInitializer {
     @Override
     public void onInitialize() {
         log = LogManager.getLogger(MODID);
+
+        Configurator.setLevel(MODID, Level.DEBUG);
+
         Log.info("Green thumb.");
 
         LushItems.init();

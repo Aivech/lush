@@ -1,6 +1,5 @@
 package com.aivech.lush.world.features;
 
-import com.aivech.lush.Lush;
 import com.aivech.lush.block.BlockReed;
 import com.aivech.lush.world.features.config.ReedFeatureConfig;
 import net.minecraft.fluid.Fluids;
@@ -23,10 +22,10 @@ public class LushReedFeature extends Feature<ReedFeatureConfig> {
 
     @Override
     public boolean generate(IWorld iWorld, ChunkGenerator<? extends ChunkGeneratorConfig> chunkGenerator, Random random, BlockPos blockPos, ReedFeatureConfig reedFeatureConfig) {
-        Lush.Log.debug("Attempting to generate reed cluster @ " + blockPos.toString());
+        //Lush.Log.debug("Attempting to generate reed cluster @ " + blockPos.toString());
         //air above & in water
         if (iWorld.isAir(blockPos.up()) && iWorld.getBlockState(blockPos).getFluidState().getFluid().equals(Fluids.WATER)) {
-            Lush.Log.debug("Water & clear space found @ " + blockPos.toString());
+            //Lush.Log.debug("Water & clear space found @ " + blockPos.toString());
             ArrayDeque<BlockPos> placeNext = new ArrayDeque<>();
             placeNext.addLast(blockPos);
             int placed = 0;
