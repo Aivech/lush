@@ -23,7 +23,7 @@ public class TestFeature extends Feature<DefaultFeatureConfig> {
         for(int i = 0; i < 36; i++) {
             BlockPos pos = blockPos.add(rand.nextInt(8)-rand.nextInt(8), rand.nextInt(4)-rand.nextInt(4),rand.nextInt(8)-rand.nextInt(8));
             if (iWorld.isAir(pos)) {
-                iWorld.setBlockState(pos, LushBlocks.ANTHURIUM.getBlock().getDefaultState(),2);
+                iWorld.setBlockState(pos, LushBlocks.ANTHURIUM.block.getDefaultState(),2);
             }
         }
         return true;
