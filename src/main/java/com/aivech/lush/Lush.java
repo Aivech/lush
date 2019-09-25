@@ -23,6 +23,8 @@ public class Lush implements ModInitializer {
 
         LushItems.init();
         LushBlocks.init();
+        LushFeatures.init();
+
         LushWorldGen.init();
 
     }

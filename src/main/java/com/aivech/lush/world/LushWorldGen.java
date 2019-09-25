@@ -1,6 +1,8 @@
 package com.aivech.lush.world;
 
+import com.aivech.lush.block.LushBlocks;
 import com.aivech.lush.world.features.LushFeatures;
+import com.aivech.lush.world.features.config.ReedFeatureConfig;
 import com.google.common.collect.HashMultimap;
 import net.fabricmc.fabric.api.event.registry.RegistryEntryAddedCallback;
 import net.minecraft.util.Identifier;
@@ -9,10 +11,8 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.decorator.Decorator;
 import net.minecraft.world.gen.decorator.NopeDecoratorConfig;
-import net.minecraft.world.gen.decorator.RangeDecoratorConfig;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
-import net.minecraft.world.gen.feature.Feature;
 
 public class LushWorldGen {
     static final HashMultimap<Identifier,BiomeFeature> biomeMap = HashMultimap.create();
@@ -29,8 +29,15 @@ public class LushWorldGen {
         Biome b = Registry.BIOME.get(id);
         b.addFeature(GenerationStep.Feature.VEGETAL_DECORATION,
                 Biome.configureFeature(
-                        LushFeatures.TEST_FEATURE,
+                        LushFeatures.TEST_FEATURE.feature,
                         new DefaultFeatureConfig(),
+                        Decorator.TOP_SOLID_HEIGHTMAP,
+                        new NopeDecoratorConfig()
+                ));
+        b.addFeature(GenerationStep.Feature.VEGETAL_DECORATION,
+                Biome.configureFeature(
+                        LushFeatures.REED_FEATURE.feature,
+                        new ReedFeatureConfig(8, LushBlocks.CATTAIL.block.getDefaultState()),
                         Decorator.TOP_SOLID_HEIGHTMAP,
                         new NopeDecoratorConfig()
                 ));

@@ -4,6 +4,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.fluid.FluidState;
+import net.minecraft.state.StateFactory;
 import net.minecraft.state.property.EnumProperty;
 import net.minecraft.tag.FluidTags;
 import net.minecraft.util.StringIdentifiable;
@@ -16,6 +17,12 @@ public class BlockReed extends BlockWaterPlant {
     public BlockReed(String id) {
         super(id);
         setDefaultState(getStateFactory().getDefaultState().with(POSITION, Position.BOTTOM));
+    }
+
+    @Override
+    protected void appendProperties(StateFactory.Builder<Block, BlockState> stateFactory) {
+        super.appendProperties(stateFactory);
+        stateFactory.add(POSITION);
     }
 
     @Override
@@ -32,7 +39,7 @@ public class BlockReed extends BlockWaterPlant {
 
         @Override
         public String asString() {
-            return this.toString();
+            return this.toString().toLowerCase();
         }
     }
 }
